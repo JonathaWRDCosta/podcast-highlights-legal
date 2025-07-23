@@ -1,0 +1,24 @@
+<!-- callback.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>TikTok Auth Callback</title>
+</head>
+<body>
+  <h1>TikTok Auth Callback</h1>
+  <p id="info">Parsing...</p>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const code = params.get("code");
+    const state = params.get("state");
+
+    if (code) {
+      document.getElementById("info").innerText = `OAuth code: ${code}, state: ${state}`;
+    } else {
+      document.getElementById("info").innerText = "No code found in query params.";
+    }
+  </script>
+</body>
+</html>
